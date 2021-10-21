@@ -17,16 +17,19 @@ console.log({ inlinedLibraries })
 let config = {
   compilationOptions: {
     preferredConfigPath: "./tsconfig.json",
+
   },
 
   entries: [
     {
+      noCheck: true,
       filePath: "./src/index.ts",
       outFile: "./types/index.d.ts",
       output: {
         inlineDeclareGlobals: true,
         inlineDeclareExternals: true,
         sortNodes: true,
+
       },
       libraries: {
         inlinedLibraries,

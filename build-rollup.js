@@ -32,6 +32,7 @@ ${files
 await writeFile("./src/index.ts", entryFileContent)
 
 let bundle = await rollup({
+  
   input: "./src/index.ts",
   treeshake: true,
   
@@ -49,6 +50,8 @@ let bundle = await rollup({
 })
 
 await bundle.write({
+  
+  
   file: "./dist/index.js",
   format: "esm",
   compact: true,
