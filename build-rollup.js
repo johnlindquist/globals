@@ -42,14 +42,9 @@ let bundle = await rollup({
       preferBuiltins: true,
     }),
     ignore(["electron"]),
-    commonjs({
-      
-      dynamicRequireTargets: ["node_modules/shelljs/src/*.js"]
-    }),
+    commonjs(),
     json(),
-    terser({
-      compress
-    }),
+    terser(),
   ],
 })
 
