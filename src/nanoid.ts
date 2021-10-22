@@ -1,15 +1,15 @@
 import { nanoid } from "nanoid"
-
+export default nanoid
 export namespace nanoid {
-  export type uuid = typeof nanoid
+  export type nanoid = typeof nanoid
 }
 
 declare global {
-  var uuid: nanoid.uuid
+  var uuid: typeof import("nanoid").nanoid
 
   namespace NodeJS {
     interface Global {
-      uuid: nanoid.uuid
+      uuid: typeof import("nanoid").nanoid
     }
   }
 }

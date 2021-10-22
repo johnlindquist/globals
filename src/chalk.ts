@@ -1,14 +1,13 @@
 import chalk from "chalk"
+global.chalk = chalk
 export type chalk = typeof chalk
 
 declare global {
-  var chalk: chalk
+  var chalk: typeof import("chalk")
 
   namespace NodeJS {
     interface Global {
-      chalk: chalk
+      chalk: typeof import("chalk")
     }
   }
 }
-
-global.chalk = chalk

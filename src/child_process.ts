@@ -18,4 +18,4 @@ declare global {
   }
 }
 
-export type child_process = typeof child_process
+// export type child_process = typeof child_process

@@ -1,15 +1,18 @@
-import handlebars from "handlebars"
-
-export type Handlebars = typeof handlebars
+import { compile } from "handlebars"
+import h from "handlebars"
+export type h = typeof h
+export namespace handlebars {
+  export type compile = typeof compile
+}
 
 declare global {
-  var compile: typeof Handlebars.compile
+  var compile: typeof import("handlebars").compile
 
   namespace NodeJS {
     interface Global {
-      compile: typeof Handlebars.compile
+      compile: typeof import("handlebars").compile
     }
   }
 }
 
-global.compile = handlebars.compile
+global.compile = compile

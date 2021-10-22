@@ -3,11 +3,11 @@ import { LoDashStatic } from "lodash"
 export { LoDashStatic }
 
 declare global {
-  var _: LoDashStatic
+  var _: import("lodash").LoDashStatic
 
   namespace NodeJS {
     interface Global {
-      _: LoDashStatic
+      _: import("lodash").LoDashStatic
     }
   }
 }

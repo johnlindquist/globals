@@ -2,11 +2,11 @@ import download from "download"
 export type download = typeof download
 
 declare global {
-  var download: download
+  var download: typeof import("download")
 
   namespace NodeJS {
     interface Global {
-      download: download
+      download: typeof import("download")
     }
   }
 }

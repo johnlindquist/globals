@@ -1,14 +1,15 @@
-import {$} from "zx"
-export namespace zx{
+import { $ } from "zx"
+export default $
+export namespace zx {
   export type $ = typeof $
 }
 
 declare global {
-  var $: zx.$
+  var $: typeof import("zx").$
 
   namespace NodeJS {
     interface Global {
-      $: zx.$
+      $: typeof import("zx").$
     }
   }
 }

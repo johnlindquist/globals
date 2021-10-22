@@ -45,35 +45,35 @@ global.remove = remove
 global.writeJson = writeJson
 
 declare global {
-  var emptyDir: fsExtra.emptyDir
-  var ensureFile: fsExtra.ensureFile
-  var ensureDir: fsExtra.ensureDir
-  var ensureLink: fsExtra.ensureLink
-  var ensureSymlink: fsExtra.ensureSymlink
-  var mkdirp: fsExtra.mkdirp
-  var mkdirs: fsExtra.mkdirs
-  var outputFile: fsExtra.outputFile
-  var outputJson: fsExtra.outputJson
-  var pathExists: fsExtra.pathExists
-  var readJson: fsExtra.readJson
-  var remove: fsExtra.remove
-  var writeJson: fsExtra.writeJson
+  var emptyDir: typeof import("fs-extra").emptyDir
+  var ensureFile: typeof import("fs-extra").ensureFile
+  var ensureDir: typeof import("fs-extra").ensureDir
+  var ensureLink: typeof import("fs-extra").ensureLink
+  var ensureSymlink: typeof import("fs-extra").ensureSymlink
+  var mkdirp: typeof import("fs-extra").mkdirp
+  var mkdirs: typeof import("fs-extra").mkdirs
+  var outputFile: typeof import("fs-extra").outputFile
+  var outputJson: typeof import("fs-extra").outputJson
+  var pathExists: typeof import("fs-extra").pathExists
+  var readJson: typeof import("fs-extra").readJson
+  var remove: typeof import("fs-extra").remove
+  var writeJson: typeof import("fs-extra").writeJson
 
   namespace NodeJS {
     interface Global {
-      emptyDir: fsExtra.emptyDir
-      ensureFile: fsExtra.ensureFile
-      ensureDir: fsExtra.ensureDir
-      ensureLink: fsExtra.ensureLink
-      ensureSymlink: fsExtra.ensureSymlink
-      mkdirp: fsExtra.mkdirp
-      mkdirs: fsExtra.mkdirs
-      outputFile: fsExtra.outputFile
-      outputJson: fsExtra.outputJson
-      pathExists: fsExtra.pathExists
-      readJson: fsExtra.readJson
-      remove: fsExtra.remove
-      writeJson: fsExtra.writeJson
+      emptyDir: typeof import("fs-extra").emptyDir
+      ensureFile: typeof import("fs-extra").ensureFile
+      ensureDir: typeof import("fs-extra").ensureDir
+      ensureLink: typeof import("fs-extra").ensureLink
+      ensureSymlink: typeof import("fs-extra").ensureSymlink
+      mkdirp: typeof import("fs-extra").mkdirp
+      mkdirs: typeof import("fs-extra").mkdirs
+      outputFile: typeof import("fs-extra").outputFile
+      outputJson: typeof import("fs-extra").outputJson
+      pathExists: typeof import("fs-extra").pathExists
+      readJson: typeof import("fs-extra").readJson
+      remove: typeof import("fs-extra").remove
+      writeJson: typeof import("fs-extra").writeJson
     }
   }
 }

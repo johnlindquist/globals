@@ -1,14 +1,19 @@
-import marked from "marked"
-export type marked = typeof marked
+import { parse } from "marked"
+import m from "marked"
+export type m = typeof m
+
+export namespace marked {
+  export type parse = typeof parse
+}
 
 declare global {
-  var md: typeof marked.parse
+  var md: typeof import("marked").parse
 
   namespace NodeJS {
     interface Global {
-      md: typeof marked.parse
+      md: typeof import("marked").parse
     }
   }
 }
 
-global.md = marked.parse
+global.md = parse

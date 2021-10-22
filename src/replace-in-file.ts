@@ -1,15 +1,12 @@
-import {replaceInFile} from "replace-in-file"
-
-export namespace replaceInFile{
-    export type replaceInFile = typeof replaceInFile
-}
+import { replaceInFile } from "replace-in-file"
+export * from "replace-in-file"
 
 declare global {
-  var replace: replaceInFile.replaceInFile
+  var replace: typeof import("replace-in-file").replaceInFile
 
   namespace NodeJS {
     interface Global {
-      replace: replaceInFile.replaceInFile
+      replace: typeof import("replace-in-file").replaceInFile
     }
   }
 }

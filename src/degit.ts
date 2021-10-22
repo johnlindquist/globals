@@ -2,11 +2,11 @@ import degit from "degit"
 export type degit = typeof degit
 
 declare global {
-  var degit: degit
+  var degit: typeof import("degit")
 
   namespace NodeJS {
     interface Global {
-      degit: degit
+      degit: typeof import("degit")
     }
   }
 }

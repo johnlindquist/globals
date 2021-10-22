@@ -1,14 +1,15 @@
+import { default as n } from "node-fetch"
 import nodeFetch from "node-fetch"
-export type fetch = typeof nodeFetch
+export default nodeFetch
 
 declare global {
-  var fetch: typeof nodeFetch
+  var fetch: typeof import("node-fetch").default
 
   namespace NodeJS {
     interface Global {
-      fetch: typeof nodeFetch
+      fetch: typeof import("node-fetch").default
     }
   }
 }
 
-global.fetch = nodeFetch
+;(global as any).fetch = n

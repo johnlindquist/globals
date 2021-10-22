@@ -32,10 +32,8 @@ ${files
 await writeFile("./src/index.ts", entryFileContent)
 
 let bundle = await rollup({
-  
   input: "./src/index.ts",
   treeshake: true,
-  
 
   plugins: [
     typescript(),
@@ -47,16 +45,14 @@ let bundle = await rollup({
     json(),
     terser({
       ecma: 2020,
-      compress:{
-        ecma: true,        
-      }
+      compress: {
+        ecma: true,
+      },
     }),
   ],
 })
 
 await bundle.write({
-  
-  
   file: "./dist/index.js",
   format: "esm",
   compact: true,
@@ -64,12 +60,9 @@ await bundle.write({
 
 await bundle.close()
 
-
 // A sad, sad hack :/
-await replace.replaceInFile(
-  {
-    files: [`./dist/index.js`],
-    from: `glob_1.Glob;`,
-    to: ``
-  }
-)
+await replace.replaceInFile({
+  files: [`./dist/index.js`],
+  from: `glob_1.Glob;`,
+  to: ``,
+})
