@@ -1,4 +1,4 @@
-import * as handlebars from "handlebars"
+import handlebars from "handlebars"
 
 export type Handlebars = typeof handlebars
 

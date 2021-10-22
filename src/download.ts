@@ -1,4 +1,4 @@
-import * as download from "download"
+import download from "download"
 export type download = typeof download
 
 declare global {

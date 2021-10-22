@@ -1,17 +1,17 @@
-import { v4 } from "uuid"
+import { nanoid } from "nanoid"
 
-export namespace uuid {
-  export type uuid = typeof v4
+export namespace nanoid {
+  export type uuid = typeof nanoid
 }
 
 declare global {
-  var uuid: uuid.uuid
+  var uuid: nanoid.uuid
 
   namespace NodeJS {
     interface Global {
-      uuid: uuid.uuid
+      uuid: nanoid.uuid
     }
   }
 }
 
-global.uuid = v4
+global.uuid = nanoid

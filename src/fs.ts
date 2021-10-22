@@ -1,5 +1,5 @@
-import * as fs from "fs"
-import * as fsPromises from "fs/promises"
+import fs from "fs"
+import fsPromises from "fs/promises"
 
 global.readFile = fsPromises.readFile
 global.writeFile = fsPromises.writeFile

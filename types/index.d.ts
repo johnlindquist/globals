@@ -4,6 +4,8 @@
 /// <reference types="got" />
 /// <reference types="node" />
 
+import { nanoid } from 'nanoid';
+
 declare class Axios {
 	constructor(config?: AxiosRequestConfig);
 	defaults: AxiosDefaults;
@@ -344,7 +346,6 @@ declare const partials: {
 };
 declare const templates: HandlebarsTemplates;
 declare const templates: HandlebarsTemplates;
-declare const v4: v4;
 declare function K(): void;
 declare function K(): void;
 declare function blockParams(obj: any[], ids: any[]): any[];
@@ -603,10 +604,10 @@ declare global {
 	}
 }
 declare global {
-	var uuid: uuid.uuid;
+	var uuid: nanoid.uuid;
 	namespace NodeJS {
 		interface Global {
-			uuid: uuid.uuid;
+			uuid: nanoid.uuid;
 		}
 	}
 }
@@ -1724,11 +1725,11 @@ export declare namespace marked {
 		tokenizer?: Tokenizer | undefined;
 	}
 }
+export declare namespace nanoid {
+	type uuid = typeof nanoid;
+}
 export declare namespace replaceInFile {
 	type replaceInFile = typeof replaceInFile;
-}
-export declare namespace uuid {
-	type uuid = typeof v4;
 }
 export declare namespace zx {
 	type $ = typeof $;
@@ -14164,9 +14165,6 @@ export interface ProcessPromise<T> extends Promise<T> {
 	pipe(dest: ProcessPromise<ProcessOutput> | Writable): ProcessPromise<ProcessOutput>;
 	kill(signal?: string | number): Promise<void>;
 }
-export interface RandomOptions {
-	random?: InputBuffer | undefined;
-}
 export interface ReadOptions {
 	throws?: boolean | undefined;
 	fs?: object | undefined;
@@ -14322,9 +14320,6 @@ export interface RightCurriedFunction5<T1, T2, T3, T4, T5, R> {
 	(t1: T1, t2: T2, t3: __, t4: T4, t5: T5): RightCurriedFunction1<T3, R>;
 	(t1: T1, t2: __, t3: T3, t4: T4, t5: T5): RightCurriedFunction1<T2, R>;
 	(t1: T1, t2: T2, t3: T3, t4: T4, t5: T5): R;
-}
-export interface RngOptions {
-	rng?: (() => InputBuffer) | undefined;
 }
 export interface Rules {
 	[ruleName: string]: RegExp | Rules;
@@ -15361,7 +15356,6 @@ export type ImpChain<T> = T extends {
 	__trapAny: any;
 } ? Collection<any> & Function<any> & Object<any> & Primitive<any> & String : T extends null | undefined ? never : T extends string | null | undefined ? String : T extends (...args: any) => any ? Function<T> : T extends List<infer U> | null | undefined ? Collection<U> : T extends object | null | undefined ? Object<T> : Primitive<T>;
 export type InfoCode = "SUCCESS" | "FILE_DOES_NOT_EXIST" | "REMOVED" | "DEST_NOT_EMPTY" | "DEST_IS_EMPTY" | "USING_CACHE" | "FOUND_MATCH" | "FILE_EXISTS" | "PROXY" | "DOWNLOADING" | "EXTRACTING";
-export type InputBuffer = ArrayLike<number>;
 /**
 	Return a new Chalk instance.
 	*/
@@ -15403,7 +15397,6 @@ export type ObjectIterateeCustom<TObject, TResult> = ObjectIterator<TObject, TRe
 export type ObjectIterator<TObject, TResult> = (value: TObject[keyof TObject], key: string, collection: TObject) => TResult;
 export type ObjectIteratorTypeGuard<TObject, S extends TObject[keyof TObject]> = (value: TObject[keyof TObject], key: string, collection: TObject) => value is S;
 export type Omit<T, K extends keyof any> = Pick<T, Exclude<keyof T, K>>;
-export type OutputBuffer = ArrayLike<number>;
 export type PartialObject<T> = GlobalPartial<T>;
 export type PartialShallow<T> = {
 	[P in keyof T]?: T[P] extends object ? object : T[P];
@@ -15432,7 +15425,6 @@ export type TokensList = Token[] & {
 	};
 };
 export type Truthy<T> = T extends null | undefined | false | "" | 0 ? never : T;
-export type V4Options = RandomOptions | RngOptions;
 export type ValidModes = "tar" | "git";
 export type ValueIteratee<T> = ((value: T) => NotVoid) | IterateeShorthand<T>;
 export type ValueIterateeCustom<T, TResult> = ((value: T) => TResult) | IterateeShorthand<T>;
@@ -15441,8 +15433,5 @@ export type ValueKeyIteratee<T> = ((value: T, key: string) => NotVoid) | Iterate
 export type ValueKeyIterateeTypeGuard<T, S extends T> = (value: T, key: string) => value is S;
 export type __ = LoDashStatic;
 export type isMatchWithCustomizer = (value: any, other: any, indexOrKey: PropertyName, object: object, source: object) => boolean | undefined;
-export type v4 = v4Buffer & v4String;
-export type v4Buffer = <T extends OutputBuffer>(options: V4Options | null | undefined, buffer: T, offset?: number) => T;
-export type v4String = (options?: V4Options) => string;
 
 export {};

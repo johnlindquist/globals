@@ -1,4 +1,4 @@
-import * as child_process from "child_process"
+import child_process from "child_process"
 
 global.spawn = child_process.spawn
 global.spawnSync = child_process.spawnSync

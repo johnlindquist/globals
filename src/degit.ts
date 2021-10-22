@@ -1,4 +1,4 @@
-import * as degit from "degit"
+import degit from "degit"
 export type degit = typeof degit
 
 declare global {
