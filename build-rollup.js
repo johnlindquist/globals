@@ -45,7 +45,12 @@ let bundle = await rollup({
     ignore(["electron"]),
     commonjs(),
     json(),
-    // terser(),
+    terser({
+      ecma: 2020,
+      compress:{
+        ecma: true,        
+      }
+    }),
   ],
 })
 
