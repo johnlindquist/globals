@@ -71,6 +71,12 @@ await replace({
 })
 
 await replace({
+  files: [`./types/replace-in-file/index.d.ts`],
+  from: /namespace.*}/g,
+  to: ``,
+})
+
+await replace({
   files: [`./types/download/index.d.ts`],
   from: [`"got"`, `"decompress"`],
   to: [`"../got"`, `"../decompress"`],
