@@ -1,6 +1,6 @@
 import fs from "fs-extra"
 import path from "path"
-import replace from "replace-in-file"
+import replace, { replaceInFile } from "replace-in-file"
 
 let files = await fs.readdir(`./src`)
 
@@ -66,4 +66,10 @@ await replace({
   files: [`./types/replace-in-file/index.d.ts`],
   from: [/declare module.*/g, /^}/m],
   to: ``,
+})
+
+await replace({
+  files: [`./types/download/index.d.ts`],
+  from: [`"got", "decompress"`],
+  to: [`"../got"`, `"../decompress`],
 })
