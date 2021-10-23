@@ -30,11 +30,11 @@ await replaceInFile({
   to: `import("./`,
 })
 
-await replaceInFile({
-  files: [`./types/index.d.ts`],
-  from: /^\/\/\/.*$\n/gm,
-  to: ``,
-})
+// await replaceInFile({
+//   files: [`./types/index.d.ts`],
+//   from: /^\/\/\/.*$\n/gm,
+//   to: ``,
+// })
 
 await replaceInFile({
   files: [`./types/index.d.ts`],
