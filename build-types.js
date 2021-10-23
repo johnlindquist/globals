@@ -1,10 +1,12 @@
 import fs from "fs-extra"
 import path from "path"
-import replace, { replaceInFile } from "replace-in-file"
+import replace from "replace-in-file"
 
 let files = await fs.readdir(`./src`)
 
 let libs = files.filter(f => !f.startsWith("index")).map(f => f.replace(/\.ts$/, ""))
+libs.push("got")
+libs.push("decompress")
 
 for (let lib of libs) {
   let indexTypesPath = path.resolve(`./node_modules/${lib}/index.d.ts`)
@@ -70,6 +72,6 @@ await replace({
 
 await replace({
   files: [`./types/download/index.d.ts`],
-  from: [`"got", "decompress"`],
-  to: [`"../got"`, `"../decompress`],
+  from: [`"got"`, `"decompress"`],
+  to: [`"../got"`, `"../decompress"`],
 })
