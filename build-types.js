@@ -7,6 +7,7 @@ let files = await fs.readdir(`./src`)
 let libs = files.filter(f => !f.startsWith("index")).map(f => f.replace(/\.ts$/, ""))
 libs.push("got")
 libs.push("decompress")
+libs.push("minimist")
 
 for (let lib of libs) {
   let indexTypesPath = path.resolve(`./node_modules/${lib}/index.d.ts`)
@@ -72,7 +73,7 @@ await replace({
 
 await replace({
   files: [`./types/replace-in-file/index.d.ts`],
-  from: /namespace.*}/g,
+  from: /namespace.*?}/gs,
   to: ``,
 })
 

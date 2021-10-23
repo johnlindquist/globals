@@ -48,4 +48,37 @@ declare var fetch: typeof import("./node-fetch")
 //replace-in-file
 declare var replace: typeof import("./replace-in-file").replaceInFile
 //zx
-declare var $: import("./zx").$
+import { ChildProcess } from "child_process"
+import { Readable, Writable } from "stream"
+
+interface $ {
+  (pieces: TemplateStringsArray, ...args: any[]): ProcessPromise<ProcessOutput>
+
+  verbose: boolean
+  shell: string
+  cwd: string
+  prefix: string
+  quote: (input: string) => string
+}
+
+interface ProcessPromise<T> extends Promise<T> {
+  child: ChildProcess
+  readonly stdin: Writable
+  readonly stdout: Readable
+  readonly stderr: Readable
+  readonly exitCode: Promise<number>
+
+  pipe(dest: ProcessPromise<ProcessOutput> | Writable): ProcessPromise<ProcessOutput>
+
+  kill(signal?: string | number): Promise<void>
+}
+
+class ProcessOutput {
+  readonly exitCode: number
+  readonly stdout: string
+  readonly stderr: string
+
+  toString(): string
+}
+
+declare var $: $
