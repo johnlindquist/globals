@@ -30,7 +30,26 @@ for (let lib of libs) {
 
   console.log(copyPath)
   if (copyPath) {
-    await fs.copyFile(copyPath, path.resolve(`./types/${lib}.d.ts`))
+    let libPath = path.resolve(`./types/${lib}`)
+    let typePath = path.resolve(libPath, path.basename(copyPath))
+    let typeDir = path.dirname(copyPath)
+
+    await fs.ensureDir(libPath)
+    await fs.copyFile(copyPath, typePath)
+
+    let contents = await fs.readFile(copyPath, "utf-8")
+
+    let refPaths = contents.match(/(?<=reference path=")(.*)(?=")/g)
+
+    if (refPaths) {
+      for (let rp of refPaths) {
+        let refSource = path.resolve(typeDir, rp)
+        let refDest = path.resolve(libPath, rp)
+
+        await fs.ensureDir(path.dirname(refDest))
+        await fs.copyFile(refSource, refDest)
+      }
+    }
   }
 
   //   let pkg = await readJsonExists(pkgPath)
@@ -38,7 +57,13 @@ for (let lib of libs) {
 }
 
 await replace({
-  files: [`./types/handlebars.d.ts`],
+  files: [`./types/handlebars/index.d.ts`],
   from: /declare module.*\n.*\n.*\n.*\n.*\n.*\n.*/gm,
   to: `export = Handlebars`,
+})
+
+await replace({
+  files: [`./types/replace-in-file/index.d.ts`],
+  from: [/declare module.*/g, /^}/m],
+  to: ``,
 })

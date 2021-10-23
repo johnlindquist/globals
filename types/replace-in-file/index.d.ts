@@ -1,5 +1,5 @@
 
-declare module 'replace-in-file' {
+
   export function replaceInFile(config: ReplaceInFileConfig): Promise<ReplaceResult[]>;
   export function replaceInFile(config: ReplaceInFileConfig, cb: (error: Error, results: ReplaceResult[]) => void): void;
   export default replaceInFile;
@@ -36,7 +36,7 @@ declare module 'replace-in-file' {
     numMatches?: number,
     numReplacements?: number,
   }
-}
+
 
 type FromCallback = (file: string) => string | RegExp | string[] | RegExp[];
 type ToCallback = (match: string, file: string) => string | string[];
