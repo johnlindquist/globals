@@ -18,7 +18,7 @@
   "scripts": {
     "test": "ava",
     "build-bundle": "node ./build-rollup.js",
-    "build-types": "dts-bundle-generator --config ./dts-config.cjs && node ./build-fix-index.js",
+    "build-types": "node ./build-types.js",
     "build": "npm run build-bundle && npm run build-types"
   },
   "devDependencies": {
@@ -32,6 +32,7 @@
     "@types/download": "^8.0.1",
     "@types/fs-extra": "^9.0.13",
     "@types/glob": "^7.2.0",
+    "@types/handlebars": "^4.1.0",
     "@types/lodash": "^4.14.176",
     "@types/marked": "^3.0.2",
     "@types/nanoid": "^3.0.0",
