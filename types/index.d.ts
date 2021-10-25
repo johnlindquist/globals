@@ -32,6 +32,15 @@ declare class ProcessOutput {
 }
 
 declare global {
+  //path
+  var path: typeof import("path")
+  //process
+  var cwd: typeof process.cwd
+  var pid: typeof process.pid
+  var stderr: typeof process.stderr
+  var stdin: typeof process.stdin
+  var stdout: typeof process.stdout
+  var uptime: typeof process.uptime
   //axios
   var get: import("./axios").AxiosInstance["get"]
   var put: import("./axios").AxiosInstance["put"]
@@ -86,6 +95,13 @@ declare global {
 
   namespace NodeJS {
     interface Global {
+      path: typeof import("path")
+      cwd: typeof process.cwd
+      pid: typeof process.pid
+      stderr: typeof process.stderr
+      stdin: typeof process.stdin
+      stdout: typeof process.stdout
+      uptime: typeof process.uptime
       get: import("./axios").AxiosInstance["get"]
       put: import("./axios").AxiosInstance["put"]
       post: import("./axios").AxiosInstance["post"]
