@@ -10,11 +10,7 @@ import replace from "replace-in-file"
 
 await replace({
   files: "node_modules/node-fetch/@types/index.d.ts",
-  from: [
-    `/// <reference lib="dom" />`,
-    `| URLSearchParams`,
-    `: URL`,
-  ],
+  from: [`/// <reference lib="dom" />`, `| URLSearchParams`, `: URL`],
   to: ``,
 })
 
@@ -25,9 +21,7 @@ files = files.filter(f => f !== "index.ts")
 // files = files.filter(f => f !== "uuid.ts")
 
 let entryFileContent = `
-${files
-  .map(f => `export * from "./${f.replace(/\.ts$/, "")}"`)
-  .join("\n")}
+${files.map(f => `export * from "./${f.replace(/\.ts$/, "")}"`).join("\n")}
 `
 await writeFile("./src/index.ts", entryFileContent)
 
@@ -58,11 +52,17 @@ await bundle.write({
   compact: true,
 })
 
+await bundle.write({
+  file: "./dist/index.cjs",
+  format: "cjs",
+  compact: true,
+})
+
 await bundle.close()
 
 // A sad, sad hack :/
 await replace.replaceInFile({
-  files: [`./dist/index.js`],
+  files: [`./dist/index.js`, `./dist/index.cjs`],
   from: `glob_1.Glob;`,
   to: ``,
 })
