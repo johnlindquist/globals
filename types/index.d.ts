@@ -31,6 +31,53 @@ declare class ProcessOutput {
   toString(): string
 }
 
+export interface GlobalsApi {
+  path: typeof import("path")
+  cwd: typeof process.cwd
+  pid: typeof process.pid
+  stderr: typeof process.stderr
+  stdin: typeof process.stdin
+  stdout: typeof process.stdout
+  uptime: typeof process.uptime
+  get: import("./axios").AxiosInstance["get"]
+  put: import("./axios").AxiosInstance["put"]
+  post: import("./axios").AxiosInstance["post"]
+  patch: import("./axios").AxiosInstance["patch"]
+  chalk: typeof import("./chalk")
+  spawn: typeof import("child_process").spawn
+  spawnSync: typeof import("child_process").spawnSync
+  fork: typeof import("child_process").fork
+  degit: typeof import("./degit")
+  download: typeof import("./download")
+  emptyDir: typeof import("./fs-extra").emptyDir
+  ensureFile: typeof import("./fs-extra").ensureFile
+  ensureDir: typeof import("./fs-extra").ensureDir
+  ensureLink: typeof import("./fs-extra").ensureLink
+  ensureSymlink: typeof import("./fs-extra").ensureSymlink
+  mkdirp: typeof import("./fs-extra").mkdirp
+  mkdirs: typeof import("./fs-extra").mkdirs
+  outputFile: typeof import("./fs-extra").outputFile
+  outputJson: typeof import("./fs-extra").outputJson
+  pathExists: typeof import("./fs-extra").pathExists
+  readJson: typeof import("./fs-extra").readJson
+  remove: typeof import("./fs-extra").remove
+  writeJson: typeof import("./fs-extra").writeJson
+  readFile: typeof import("fs/promises").readFile
+  writeFile: typeof import("fs/promises").writeFile
+  appendFile: typeof import("fs/promises").appendFile
+  readdir: typeof import("fs/promises").readdir
+  copyFile: typeof import("fs/promises").copyFile
+  createReadStream: typeof import("fs").createReadStream
+  createWriteStream: typeof import("fs").createWriteStream
+  compile: typeof import("./handlebars").compile
+  _: import("./lodash").LoDashStatic
+  md: typeof import("./marked").parse
+  uuid: typeof import("./nanoid").nanoid
+  fetch: typeof import("./node-fetch")
+  replace: typeof import("./replace-in-file").replaceInFile
+  $: $
+}
+
 declare global {
   //path
   var path: typeof import("path")
@@ -94,52 +141,7 @@ declare global {
   var $: $
 
   namespace NodeJS {
-    interface Global {
-      path: typeof import("path")
-      cwd: typeof process.cwd
-      pid: typeof process.pid
-      stderr: typeof process.stderr
-      stdin: typeof process.stdin
-      stdout: typeof process.stdout
-      uptime: typeof process.uptime
-      get: import("./axios").AxiosInstance["get"]
-      put: import("./axios").AxiosInstance["put"]
-      post: import("./axios").AxiosInstance["post"]
-      patch: import("./axios").AxiosInstance["patch"]
-      chalk: typeof import("./chalk")
-      spawn: typeof import("child_process").spawn
-      spawnSync: typeof import("child_process").spawnSync
-      fork: typeof import("child_process").fork
-      degit: typeof import("./degit")
-      download: typeof import("./download")
-      emptyDir: typeof import("./fs-extra").emptyDir
-      ensureFile: typeof import("./fs-extra").ensureFile
-      ensureDir: typeof import("./fs-extra").ensureDir
-      ensureLink: typeof import("./fs-extra").ensureLink
-      ensureSymlink: typeof import("./fs-extra").ensureSymlink
-      mkdirp: typeof import("./fs-extra").mkdirp
-      mkdirs: typeof import("./fs-extra").mkdirs
-      outputFile: typeof import("./fs-extra").outputFile
-      outputJson: typeof import("./fs-extra").outputJson
-      pathExists: typeof import("./fs-extra").pathExists
-      readJson: typeof import("./fs-extra").readJson
-      remove: typeof import("./fs-extra").remove
-      writeJson: typeof import("./fs-extra").writeJson
-      readFile: typeof import("fs/promises").readFile
-      writeFile: typeof import("fs/promises").writeFile
-      appendFile: typeof import("fs/promises").appendFile
-      readdir: typeof import("fs/promises").readdir
-      copyFile: typeof import("fs/promises").copyFile
-      createReadStream: typeof import("fs").createReadStream
-      createWriteStream: typeof import("fs").createWriteStream
-      compile: typeof import("./handlebars").compile
-      _: import("./lodash").LoDashStatic
-      md: typeof import("./marked").parse
-      uuid: typeof import("./nanoid").nanoid
-      fetch: typeof import("./node-fetch")
-      replace: typeof import("./replace-in-file").replaceInFile
-      $: $
-    }
+    interface Global extends GlobalsApi {}
   }
 }
 
