@@ -1,3 +1,3 @@
-import degit from "degit"
+import _degit from "degit"
 
-global.degit = degit
+export let degit = (global.degit = _degit)

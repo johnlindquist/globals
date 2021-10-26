@@ -1,2 +1,2 @@
-import chalk from "chalk"
-global.chalk = chalk
+import _chalk from "chalk"
+export let chalk = (global.chalk = _chalk)

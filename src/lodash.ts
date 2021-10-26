@@ -1,2 +1,2 @@
-import _ from "lodash"
-global._ = _
+import __ from "lodash"
+export let _ = (global._ = __)

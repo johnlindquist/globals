@@ -1,3 +1,3 @@
 import { nanoid } from "nanoid"
 
-global.uuid = nanoid
+export let uuid = (global.uuid = nanoid)

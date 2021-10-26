@@ -52,17 +52,17 @@ await bundle.write({
   compact: true,
 })
 
-await bundle.write({
-  file: "./dist/index.cjs",
-  format: "cjs",
-  compact: true,
-})
+// await bundle.write({
+//   file: "./dist/index.cjs",
+//   format: "cjs",
+//   compact: true,
+// })
 
 await bundle.close()
 
 // A sad, sad hack :/
 await replace.replaceInFile({
-  files: [`./dist/index.js`, `./dist/index.cjs`],
+  files: [`./dist/index.js`],
   from: `glob_1.Glob;`,
   to: ``,
 })

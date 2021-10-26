@@ -1,3 +1,3 @@
-import download from "download"
+import _download from "download"
 
-global.download = download
+export let download = (global.download = _download)

@@ -1,6 +1,6 @@
 import axios from "axios"
 
-global.get = axios.get
-global.put = axios.put
-global.post = axios.post
-global.patch = axios.patch
+export let get = (global.get = axios.get)
+export let put = (global.put = axios.put)
+export let post = (global.post = axios.post)
+export let patch = (global.patch = axios.patch)

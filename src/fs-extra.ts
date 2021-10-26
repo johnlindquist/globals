@@ -1,29 +1,15 @@
-import {
-  emptyDir,
-  ensureFile,
-  ensureDir,
-  ensureLink,
-  ensureSymlink,
-  mkdirp,
-  mkdirs,
-  outputFile,
-  outputJson,
-  pathExists,
-  readJson,
-  remove,
-  writeJson,
-} from "fs-extra"
+import fs from "fs-extra"
 
-global.emptyDir = emptyDir
-global.ensureFile = ensureFile
-global.ensureDir = ensureDir
-global.ensureLink = ensureLink
-global.ensureSymlink = ensureSymlink
-global.mkdirp = mkdirp
-global.mkdirs = mkdirs
-global.outputFile = outputFile
-global.outputJson = outputJson
-global.pathExists = pathExists
-global.readJson = readJson
-global.remove = remove
-global.writeJson = writeJson
+export let emptyDir = (global.emptyDir = fs.emptyDir)
+export let ensureFile = (global.ensureFile = fs.ensureFile)
+export let ensureDir = (global.ensureDir = fs.ensureDir)
+export let ensureLink = (global.ensureLink = fs.ensureLink)
+export let ensureSymlink = (global.ensureSymlink = fs.ensureSymlink)
+export let mkdirp = (global.mkdirp = fs.mkdirp)
+export let mkdirs = (global.mkdirs = fs.mkdirs)
+export let outputFile = (global.outputFile = fs.outputFile)
+export let outputJson = (global.outputJson = fs.outputJson)
+export let pathExists = (global.pathExists = fs.pathExists)
+export let readJson = (global.readJson = fs.readJson)
+export let remove = (global.remove = fs.remove)
+export let writeJson = (global.writeJson = fs.writeJson)

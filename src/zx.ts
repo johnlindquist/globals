@@ -1,3 +1,3 @@
-import { $ } from "zx"
+import { $ as _$ } from "zx"
 
-global.$ = $
+export let $ = (global.$ = _$)

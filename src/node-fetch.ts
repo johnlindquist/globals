@@ -1,3 +1,3 @@
 import nodeFetch from "node-fetch"
 
-global.fetch = nodeFetch
+export let fetch = (global.fetch = nodeFetch)

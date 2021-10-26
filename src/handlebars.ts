@@ -1,3 +1,3 @@
-import { compile } from "handlebars"
+import { compile as _compile } from "handlebars"
 
-global.compile = compile
+export let compile = (global.compile = _compile)

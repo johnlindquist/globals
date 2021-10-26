@@ -1,3 +1,3 @@
 import { replaceInFile } from "replace-in-file"
 
-global.replace = replaceInFile
+export let replace = (global.replace = replaceInFile)

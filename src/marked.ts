@@ -1,3 +1,3 @@
-import { parse } from "marked"
+import marked from "marked"
 
-global.md = parse
+export let md = (global.md = marked.parse)

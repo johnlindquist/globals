@@ -1,11 +1,10 @@
 import fs from "fs"
 import fsPromises from "fs/promises"
 
-global.readFile = fsPromises.readFile
-global.writeFile = fsPromises.writeFile
-global.appendFile = fsPromises.appendFile
-global.readdir = fsPromises.readdir
-global.copyFile = fsPromises.copyFile
-
-global.createReadStream = fs.createReadStream
-global.createWriteStream = fs.createWriteStream
+export let readFile = (global.readFile = fsPromises.readFile)
+export let writeFile = (global.writeFile = fsPromises.writeFile)
+export let appendFile = (global.appendFile = fsPromises.appendFile)
+export let readdir = (global.readdir = fsPromises.readdir)
+export let copyFile = (global.copyFile = fsPromises.copyFile)
+export let createReadStream = (global.createReadStream = fs.createReadStream)
+export let createWriteStream = (global.createWriteStream = fs.createWriteStream)

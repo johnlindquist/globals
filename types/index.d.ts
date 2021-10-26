@@ -142,3 +142,64 @@ declare global {
     }
   }
 }
+
+//path
+export var path: typeof import("path")
+//process
+export var cwd: typeof process.cwd
+export var pid: typeof process.pid
+export var stderr: typeof process.stderr
+export var stdin: typeof process.stdin
+export var stdout: typeof process.stdout
+export var uptime: typeof process.uptime
+//axios
+export var get: import("./axios").AxiosInstance["get"]
+export var put: import("./axios").AxiosInstance["put"]
+export var post: import("./axios").AxiosInstance["post"]
+export var patch: import("./axios").AxiosInstance["patch"]
+//chalk
+export var chalk: typeof import("./chalk")
+//child_process
+export var spawn: typeof import("child_process").spawn
+export var spawnSync: typeof import("child_process").spawnSync
+export var fork: typeof import("child_process").fork
+export var degit: typeof import("./degit")
+//download
+export var download: typeof import("./download")
+//fs-extra
+export var emptyDir: typeof import("./fs-extra").emptyDir
+export var ensureFile: typeof import("./fs-extra").ensureFile
+export var ensureDir: typeof import("./fs-extra").ensureDir
+export var ensureLink: typeof import("./fs-extra").ensureLink
+export var ensureSymlink: typeof import("./fs-extra").ensureSymlink
+export var mkdirp: typeof import("./fs-extra").mkdirp
+export var mkdirs: typeof import("./fs-extra").mkdirs
+export var outputFile: typeof import("./fs-extra").outputFile
+export var outputJson: typeof import("./fs-extra").outputJson
+export var pathExists: typeof import("./fs-extra").pathExists
+export var readJson: typeof import("./fs-extra").readJson
+export var remove: typeof import("./fs-extra").remove
+export var writeJson: typeof import("./fs-extra").writeJson
+//fs/promises
+export var readFile: typeof import("fs/promises").readFile
+export var writeFile: typeof import("fs/promises").writeFile
+export var appendFile: typeof import("fs/promises").appendFile
+export var readdir: typeof import("fs/promises").readdir
+export var copyFile: typeof import("fs/promises").copyFile
+//fs
+export var createReadStream: typeof import("fs").createReadStream
+export var createWriteStream: typeof import("fs").createWriteStream
+//handlebars
+export var compile: typeof import("./handlebars").compile
+//lodash
+export var _: import("./lodash").LoDashStatic
+//marked
+export var md: typeof import("./marked").parse
+//nonoid
+export var uuid: typeof import("./nanoid").nanoid
+//node-fetch
+export var fetch: typeof import("./node-fetch")
+//replace-in-file
+export var replace: typeof import("./replace-in-file").replaceInFile
+//zx
+export var $: $

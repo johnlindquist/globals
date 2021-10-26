@@ -1,7 +1,7 @@
-global.cwd = process.cwd
-global.pid = process.pid
-global.stderr = process.stderr
-global.stdin = process.stdin
-global.stdout = process.stdout
-global.uptime = process.uptime
+export let cwd = (global.cwd = process.cwd)
+export let pid = (global.pid = process.pid)
+export let stderr = (global.stderr = process.stderr)
+export let stdin = (global.stdin = process.stdin)
+export let stdout = (global.stdout = process.stdout)
+export let uptime = (global.uptime = process.uptime)
 export {}
