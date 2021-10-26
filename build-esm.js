@@ -1,4 +1,3 @@
-import { readdir, writeFile } from "fs/promises"
 import { rollup } from "rollup"
 import typescript from "@rollup/plugin-typescript"
 import resolve from "@rollup/plugin-node-resolve"
@@ -13,17 +12,6 @@ await replace({
   from: [`/// <reference lib="dom" />`, `| URLSearchParams`, `: URL`],
   to: ``,
 })
-
-let files = await readdir("./src")
-files = files.filter(f => f !== "index.ts")
-// files = files.filter(f => f !== "replace-in-file.ts")
-// files = files.filter(f => f !== "shelljs.ts")
-// files = files.filter(f => f !== "uuid.ts")
-
-let entryFileContent = `
-${files.map(f => `export * from "./${f.replace(/\.ts$/, "")}"`).join("\n")}
-`
-await writeFile("./src/index.ts", entryFileContent)
 
 let bundle = await rollup({
   input: "./src/index.ts",
@@ -52,17 +40,11 @@ await bundle.write({
   compact: true,
 })
 
-// await bundle.write({
-//   file: "./dist/index.cjs",
-//   format: "cjs",
-//   compact: true,
-// })
-
 await bundle.close()
 
 // A sad, sad hack :/
 await replace.replaceInFile({
-  files: [`./dist/index.js`],
+  files: [`./dist/index.js`, `./dist/index.cjs`],
   from: `glob_1.Glob;`,
   to: ``,
 })
