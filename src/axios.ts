@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "../ncc/axios"
 
 export let get = (global.get = axios.get)
 export let put = (global.put = axios.put)
