@@ -6,6 +6,6 @@ files = files.filter(f => f !== "index.ts")
 // files = files.filter(f => f !== "uuid.ts")
 
 let entryFileContent = `
-${files.map(f => `export * from "../ncc/${f.replace(/\.ts$/, "")}"`).join("\n")}
+${files.map(f => `export * from "../src/${f.replace(/\.ts$/, "")}"`).join("\n")}
 `
 await writeFile("./src/index.ts", entryFileContent)
