@@ -31,6 +31,9 @@ declare class ProcessOutput {
   toString(): string
 }
 
+interface Md {
+  (markdown: string, containerClasses?: string): string
+}
 export interface GlobalsApi {
   path: typeof import("path")
   cwd: typeof process.cwd
@@ -71,7 +74,7 @@ export interface GlobalsApi {
   createWriteStream: typeof import("fs").createWriteStream
   compile: typeof import("./handlebars").compile
   _: import("./lodash").LoDashStatic
-  md: typeof import("./marked").parse
+  md: Md
   uuid: typeof import("./nanoid").nanoid
   fetch: typeof import("./node-fetch")
   replace: typeof import("./replace-in-file").replaceInFile
@@ -130,7 +133,7 @@ declare global {
   //lodash
   var _: import("./lodash").LoDashStatic
   //marked
-  var md: typeof import("./marked").parse
+  var md: Md
   //nonoid
   var uuid: typeof import("./nanoid").nanoid
   //node-fetch
