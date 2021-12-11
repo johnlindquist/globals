@@ -50,6 +50,12 @@ export interface GlobalsApi {
   spawn: typeof import("child_process").spawn
   spawnSync: typeof import("child_process").spawnSync
   fork: typeof import("child_process").fork
+  exec: typeof import("./execa").execaCommand
+  execa: typeof import("./execa").execa
+  execaSync: typeof import("./execa").execaSync
+  execaCommand: typeof import("./execa").execaCommand
+  execaCommandSync: typeof import("./execa").execaCommandSync
+  execaNode: typeof import("./execa").execaNode
   degit: typeof import("./degit")
   download: typeof import("./download")
   emptyDir: typeof import("./fs-extra").emptyDir
@@ -79,6 +85,9 @@ export interface GlobalsApi {
   fetch: typeof import("./node-fetch")
   replace: typeof import("./replace-in-file").replaceInFile
   $: $
+
+  //custom
+  ensureReadFile: typeof import("../src/custom").ensureReadFile
 }
 
 declare global {
@@ -103,6 +112,15 @@ declare global {
   var spawnSync: typeof import("child_process").spawnSync
   var fork: typeof import("child_process").fork
   var degit: typeof import("./degit")
+  // custom
+  var ensureReadFile: typeof import("../src/custom").ensureReadFile
+  // execa
+  var exec: typeof import("./execa").execaCommand
+  var execa: typeof import("./execa").execa
+  var execaSync: typeof import("./execa").execaSync
+  var execaCommand: typeof import("./execa").execaCommand
+  var execaCommandSync: typeof import("./execa").execaCommandSync
+  var execaNode: typeof import("./execa").execaNode
   //download
   var download: typeof import("./download")
   //fs-extra
@@ -169,8 +187,17 @@ export var spawn: typeof import("child_process").spawn
 export var spawnSync: typeof import("child_process").spawnSync
 export var fork: typeof import("child_process").fork
 export var degit: typeof import("./degit")
+//custom
+export var ensureReadFile: typeof import("../src/custom").ensureReadFile
 //download
 export var download: typeof import("./download")
+// execa
+export var exec: typeof import("./execa").execaCommand
+export var execa: typeof import("./execa").execa
+export var execaSync: typeof import("./execa").execaSync
+export var execaCommand: typeof import("./execa").execaCommand
+export var execaCommandSync: typeof import("./execa").execaCommandSync
+export var execaNode: typeof import("./execa").execaNode
 //fs-extra
 export var emptyDir: typeof import("./fs-extra").emptyDir
 export var ensureFile: typeof import("./fs-extra").ensureFile
