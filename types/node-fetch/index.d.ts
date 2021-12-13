@@ -1,5 +1,5 @@
 /// <reference types="node" />
-/// <reference lib="dom" />
+
 
 import {Agent} from 'http';
 
@@ -73,7 +73,7 @@ export interface RequestInit {
 	signal?: AbortSignal | null;
 
 	// Node-fetch extensions to the whatwg/fetch spec
-	agent?: Agent | ((parsedUrl: URL) => Agent);
+	agent?: Agent | ((parsedUrl) => Agent);
 	compress?: boolean;
 	counter?: number;
 	follow?: number;
@@ -94,7 +94,7 @@ export interface ResponseInit {
 export type BodyInit =
 	| Blob
 	| Buffer
-	| URLSearchParams
+	
 	| NodeJS.ReadableStream
 	| string;
 declare class BodyMixin {

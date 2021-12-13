@@ -8,7 +8,9 @@ global.execaSync = execaSync
 
 export let execaCommand = all.execaCommand
 global.execaCommand = execaCommand
-global.exec = execaCommand
+global.exec = (command, options = { shell: true }) => {
+  return execaCommand(command, options)
+}
 
 export let execaCommandSync = all.execaCommandSync
 global.execaCommandSync = execaCommandSync
