@@ -1,5 +1,6 @@
 import { ChildProcess } from "child_process"
 import { Readable, Writable } from "stream"
+import { PlatformPath } from "path"
 
 interface $ {
   (pieces: TemplateStringsArray, ...args: any[]): ProcessPromise<ProcessOutput>
@@ -34,8 +35,12 @@ declare class ProcessOutput {
 interface Md {
   (markdown: string, containerClasses?: string): string
 }
+
+type PathPicker = (startPath?: string) => Promise<string>
+export type PathSelector = PlatformPath & PathPicker
+
 export interface GlobalsApi {
-  path: typeof import("path")
+  path: PathSelector
   cwd: typeof process.cwd
   pid: typeof process.pid
   stderr: typeof process.stderr
@@ -92,7 +97,7 @@ export interface GlobalsApi {
 
 declare global {
   //path
-  var path: typeof import("path")
+  var path: PathSelector
   //process
   var cwd: typeof process.cwd
   var pid: typeof process.pid
