@@ -1,5 +1,4 @@
 import { ChildProcess } from "child_process"
-import { Readable, Writable } from "stream"
 import { PlatformPath } from "path"
 
 interface $ {
@@ -83,10 +82,14 @@ export interface GlobalsApi {
   copyFile: typeof import("fs/promises").copyFile
   createReadStream: typeof import("fs").createReadStream
   createWriteStream: typeof import("fs").createWriteStream
+  Writable: typeof import("stream").Writable
+  Readable: typeof import("stream").Readable
+  Duplex: typeof import("stream").Duplex
+  Transform: typeof import("stream").Transform
   compile: typeof import("./handlebars").compile
   _: import("./lodash").LoDashStatic
   md: Md
-  uuid: typeof import("./nanoid").nanoid
+  uuid: typeof import("crypto").randomUUID
   fetch: typeof import("./node-fetch")
   replace: typeof import("./replace-in-file").replaceInFile
   $: $
@@ -158,7 +161,7 @@ declare global {
   //marked
   var md: Md
   //nonoid
-  var uuid: typeof import("./nanoid").nanoid
+  var uuid: typeof import("crypto").randomUUID
   //node-fetch
   var fetch: typeof import("./node-fetch")
   //replace-in-file
@@ -233,10 +236,15 @@ export var _: import("./lodash").LoDashStatic
 //marked
 export var md: typeof import("./marked").parse
 //nonoid
-export var uuid: typeof import("./nanoid").nanoid
+export var uuid: typeof import("crypto").randomUUID
 //node-fetch
 export var fetch: typeof import("./node-fetch")
 //replace-in-file
 export var replace: typeof import("./replace-in-file").replaceInFile
+// stream
+export var Writable: typeof import("stream").Writable
+export var Readable: typeof import("stream").Readable
+export var Duplex: typeof import("stream").Duplex
+export var Transform: typeof import("stream").Transform
 //zx
 export var $: $
