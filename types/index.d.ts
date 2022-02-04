@@ -172,7 +172,7 @@ declare global {
 }
 
 //path
-export var path: typeof import("path")
+export var path: PathSelector
 //process
 export var cwd: typeof process.cwd
 export var pid: typeof process.pid
