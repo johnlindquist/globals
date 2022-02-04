@@ -160,12 +160,17 @@ declare global {
   var _: import("./lodash").LoDashStatic
   //marked
   var md: Md
-  //nonoid
+  //uuid
   var uuid: typeof import("crypto").randomUUID
   //node-fetch
   var fetch: typeof import("./node-fetch")
   //replace-in-file
   var replace: typeof import("./replace-in-file").replaceInFile
+  // stream
+  var Writable: typeof import("stream").Writable
+  var Readable: typeof import("stream").Readable
+  var Duplex: typeof import("stream").Duplex
+  var Transform: typeof import("stream").Transform
   //zx
   var $: $
 
