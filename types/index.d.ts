@@ -13,12 +13,12 @@ interface $ {
 
 interface ProcessPromise<T> extends Promise<T> {
   child: ChildProcess
-  readonly stdin: Writable
-  readonly stdout: Readable
-  readonly stderr: Readable
+  readonly stdin: typeof import("stream").Writable
+  readonly stdout: typeof import("stream").Readable
+  readonly stderr: typeof import("stream").Readable
   readonly exitCode: Promise<number>
 
-  pipe(dest: ProcessPromise<ProcessOutput> | Writable): ProcessPromise<ProcessOutput>
+  pipe(dest: ProcessPromise<ProcessOutput> | typeof import("stream").Writable): ProcessPromise<ProcessOutput>
 
   kill(signal?: string | number): Promise<void>
 }
