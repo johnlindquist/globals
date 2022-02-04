@@ -9,7 +9,7 @@ export let readdir = (global.readdir = fsPromises.readdir)
 export let copyFile = (global.copyFile = fsPromises.copyFile)
 export let createReadStream = (global.createReadStream = fs.createReadStream)
 export let createWriteStream = (global.createWriteStream = fs.createWriteStream)
-export let Writable = Stream.Writable
-export let Readable = Stream.Readable
-export let Duplex = Stream.Duplex
-export let Transform = Stream.Transform
+export let Writable = (global.Writable = Stream.Writable)
+export let Readable = (global.Readable = Stream.Readable)
+export let Duplex = (global.Duplex = Stream.Duplex)
+export let Transform = (global.Transform = Stream.Transform)
