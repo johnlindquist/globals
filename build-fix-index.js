@@ -2,9 +2,7 @@ import { readdir } from "fs/promises"
 import replaceInFile from "replace-in-file"
 
 let srcDirFiles = await readdir("./src")
-let libs = srcDirFiles.filter(
-  file => !file.startsWith("index.ts")
-)
+let libs = srcDirFiles.filter(file => !file.startsWith("index.ts"))
 
 let template = libs
   .map(file => {

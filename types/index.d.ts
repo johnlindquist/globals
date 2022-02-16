@@ -35,7 +35,12 @@ interface Md {
   (markdown: string, containerClasses?: string): string
 }
 
-type PathPicker = (startPath?: string) => Promise<string>
+type PathConfig = {
+  startPath?: string
+  hint?: string
+}
+
+type PathPicker = (config?: string | PathConfig) => Promise<string>
 export type PathSelector = PlatformPath & PathPicker
 
 export interface GlobalsApi {
