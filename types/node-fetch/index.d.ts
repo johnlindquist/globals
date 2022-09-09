@@ -99,7 +99,7 @@ export interface RequestInit {
 	referrerPolicy?: ReferrerPolicy;
 
 	// Node-fetch extensions to the whatwg/fetch spec
-	agent?: RequestOptions['agent'] | ((parsedUrl: URL) => RequestOptions['agent']);
+	agent?: RequestOptions['agent'] | ((parsedUrl) => RequestOptions['agent']);
 	compress?: boolean;
 	counter?: number;
 	follow?: number;
@@ -120,7 +120,7 @@ export interface ResponseInit {
 export type BodyInit =
 	| Blob
 	| Buffer
-	| URLSearchParams
+	
 	| FormData
 	| NodeJS.ReadableStream
 	| string;

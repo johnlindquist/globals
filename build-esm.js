@@ -16,6 +16,7 @@ await replace({
 let bundle = await rollup({
   input: "./src/index.ts",
   treeshake: true,
+  inlineDynamicImports: true,
 
   plugins: [
     typescript(),
