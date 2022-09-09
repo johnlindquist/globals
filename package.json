@@ -11,12 +11,6 @@
   "main": "./dist/index.js",
   "source": "./src/index.ts",
   "types": "./types/index.d.ts",
-  "exports": {
-    ".": {
-      "require": "./dist/index.cjs",
-      "default": "./dist/index.js"
-    }
-  },
   "module": "./dist/index.js",
   "files": [
     "dist/*",
@@ -26,7 +20,6 @@
     "test": "ava",
     "create-entry": "node ./build-entry.js",
     "build-esm": "node ./build-esm.js",
-    "build-cjs": "node ./build-cjs.js",
     "build-types": "node ./build-types.js",
     "build": "npm run create-entry && concurrently npm:build-*"
   },
