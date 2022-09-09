@@ -1,4 +1,4 @@
-import { marked as _marked } from "marked"
+import _marked from "marked"
 import _markedForms from "marked-forms"
 
 _marked.use(_markedForms())
