@@ -44,8 +44,8 @@ await bundle.write({
 await bundle.close()
 
 // A sad, sad hack :/
-// await replace.replaceInFile({
-//   files: [`./dist/index.js`, `./dist/index.cjs`],
-//   from: `glob_1.Glob;`,
-//   to: ``,
-// })
+await replace.replaceInFile({
+  files: [`./dist/index.js`, `./dist/index.cjs`],
+  from: `glob_1.Glob;`,
+  to: ``,
+})
