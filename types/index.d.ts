@@ -45,7 +45,7 @@ export interface GlobalsApi {
   put: import("./axios").AxiosInstance["put"]
   post: import("./axios").AxiosInstance["post"]
   patch: import("./axios").AxiosInstance["patch"]
-  chalk: typeof import("./chalk")
+  chalk: typeof import("./chalk").default
   spawn: typeof import("child_process").spawn
   spawnSync: typeof import("child_process").spawnSync
   fork: typeof import("child_process").fork
@@ -107,7 +107,7 @@ declare global {
   var post: import("./axios").AxiosInstance["post"]
   var patch: import("./axios").AxiosInstance["patch"]
   //chalk
-  var chalk: typeof import("./chalk")
+  var chalk: typeof import("./chalk").default
   //child_process
   var spawn: typeof import("child_process").spawn
   var spawnSync: typeof import("child_process").spawnSync
@@ -185,7 +185,7 @@ export var put: import("./axios").AxiosInstance["put"]
 export var post: import("./axios").AxiosInstance["post"]
 export var patch: import("./axios").AxiosInstance["patch"]
 //chalk
-export var chalk: typeof import("./chalk")
+export var chalk: typeof import("./chalk").default
 //child_process
 export var spawn: typeof import("child_process").spawn
 export var spawnSync: typeof import("child_process").spawnSync

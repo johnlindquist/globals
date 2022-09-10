@@ -3,7 +3,7 @@ import { ensureFile } from "./fs-extra"
 
 type ReadFileParams = Parameters<typeof readFile>
 export interface EnsureReadFile {
-  (pathLike: string, content: string, options: ReadFileParams[1]): Promise<string | Buffer>
+  (pathLike: string, content?: string, options?: ReadFileParams[1]): Promise<string | Buffer>
 }
 export let ensureReadFile: EnsureReadFile = async (
   pathLike: string,
