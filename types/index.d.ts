@@ -45,7 +45,7 @@ export interface GlobalsApi {
   put: import("./axios").AxiosInstance["put"]
   post: import("./axios").AxiosInstance["post"]
   patch: import("./axios").AxiosInstance["patch"]
-  chalk: typeof import("./chalk").default
+  chalk: typeof import("chalk-template").default
   spawn: typeof import("child_process").spawn
   spawnSync: typeof import("child_process").spawnSync
   fork: typeof import("child_process").fork
@@ -185,7 +185,7 @@ export var put: import("./axios").AxiosInstance["put"]
 export var post: import("./axios").AxiosInstance["post"]
 export var patch: import("./axios").AxiosInstance["patch"]
 //chalk
-export var chalk: typeof import("./chalk").default
+export var chalk: typeof import("chalk-template").default
 //child_process
 export var spawn: typeof import("child_process").spawn
 export var spawnSync: typeof import("child_process").spawnSync
