@@ -164,8 +164,6 @@ declare global {
   var Readable: typeof import("stream").Readable
   var Duplex: typeof import("stream").Duplex
   var Transform: typeof import("stream").Transform
-  //zx
-  var $: $
 
   namespace NodeJS {
     interface Global extends GlobalsApi {}
@@ -242,5 +240,3 @@ export var Writable: typeof import("stream").Writable
 export var Readable: typeof import("stream").Readable
 export var Duplex: typeof import("stream").Duplex
 export var Transform: typeof import("stream").Transform
-//zx
-export var $: $
