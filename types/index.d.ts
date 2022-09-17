@@ -1,39 +1,3 @@
-import { ChildProcess } from "child_process"
-
-interface $ {
-  (pieces: TemplateStringsArray, ...args: any[]): ProcessPromise<ProcessOutput>
-
-  verbose: boolean
-  shell: string
-  cwd: string
-  prefix: string
-  quote: (input: string) => string
-}
-
-interface ProcessPromise<T> extends Promise<T> {
-  child: ChildProcess
-  readonly stdin: typeof import("stream").Writable
-  readonly stdout: typeof import("stream").Readable
-  readonly stderr: typeof import("stream").Readable
-  readonly exitCode: Promise<number>
-
-  pipe(dest: ProcessPromise<ProcessOutput> | typeof import("stream").Writable): ProcessPromise<ProcessOutput>
-
-  kill(signal?: string | number): Promise<void>
-}
-
-declare class ProcessOutput {
-  readonly exitCode: number
-  readonly stdout: string
-  readonly stderr: string
-
-  toString(): string
-}
-
-interface Md {
-  (markdown: string, containerClasses?: string): string
-}
-
 export interface GlobalsApi {
   cwd: typeof process.cwd
   pid: typeof process.pid
@@ -83,11 +47,12 @@ export interface GlobalsApi {
   Transform: typeof import("stream").Transform
   compile: typeof import("./handlebars").compile
   _: import("./lodash").LoDashStatic
-  md: Md
+  md: typeof import("../src/md").md
+  marked: typeof import("./marked").marked
   uuid: typeof import("crypto").randomUUID
   fetch: typeof import("./node-fetch")
   replace: typeof import("./replace-in-file").replaceInFile
-  $: $
+  $: typeof import("./zx").$
 
   //custom
   ensureReadFile: typeof import("../src/custom").ensureReadFile
@@ -152,10 +117,11 @@ declare global {
   //lodash
   var _: import("./lodash").LoDashStatic
   //marked
-  var md: Md
+  var md: typeof import("../src/md").md
   //uuid
   var uuid: typeof import("crypto").randomUUID
   //node-fetch
+  // @ts-ignore
   var fetch: typeof import("./node-fetch")
   //replace-in-file
   var replace: typeof import("./replace-in-file").replaceInFile
@@ -228,7 +194,8 @@ export var compile: typeof import("./handlebars").compile
 //lodash
 export var _: import("./lodash").LoDashStatic
 //marked
-export var md: typeof import("./marked").parse
+export var md: Md
+export var marked: typeof import("./marked").marked
 //nonoid
 export var uuid: typeof import("crypto").randomUUID
 //node-fetch
