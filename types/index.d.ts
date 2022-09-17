@@ -57,7 +57,7 @@ export interface GlobalsApi {
   compile: typeof import("./handlebars").compile
   _: import("./lodash").LoDashStatic
   md: Md
-  marked: typeof import("marked").marked
+  marked: typeof import("./marked").marked
   uuid: typeof import("crypto").randomUUID
   fetch: typeof import("./node-fetch")
   replace: typeof import("./replace-in-file").replaceInFile
@@ -127,7 +127,7 @@ declare global {
   var _: import("./lodash").LoDashStatic
   //marked
   var md: Md
-  var marked: typeof import("marked").marked
+  var marked: typeof import("./marked").marked
   //uuid
   var uuid: typeof import("crypto").randomUUID
   //node-fetch
@@ -204,7 +204,7 @@ export var compile: typeof import("./handlebars").compile
 export var _: import("./lodash").LoDashStatic
 //marked
 export var md: Md
-export var marked: typeof import("marked").marked
+export var marked: typeof import("./marked").marked
 //nonoid
 export var uuid: typeof import("crypto").randomUUID
 //node-fetch
