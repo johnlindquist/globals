@@ -1,3 +1,12 @@
+export interface Md {
+  (markdown: string, containerClasses?: string): string
+}
+
+type ReadFileOptions = Parameters<typeof readFile>[1]
+export interface EnsureReadFile {
+  (path: string, defaultContent?: string, options?: ReadFileOptions): Promise<string>
+}
+
 export interface GlobalsApi {
   cwd: typeof process.cwd
   pid: typeof process.pid
@@ -47,15 +56,15 @@ export interface GlobalsApi {
   Transform: typeof import("stream").Transform
   compile: typeof import("./handlebars").compile
   _: import("./lodash").LoDashStatic
-  md: typeof import("../src/md").md
-  marked: typeof import("./marked").marked
+  md: Md
+  marked: typeof import("marked").marked
   uuid: typeof import("crypto").randomUUID
   fetch: typeof import("./node-fetch")
   replace: typeof import("./replace-in-file").replaceInFile
-  $: typeof import("./zx").$
+  $: $
 
   //custom
-  ensureReadFile: typeof import("../src/custom").ensureReadFile
+  ensureReadFile: EnsureReadFile
 }
 
 declare global {
@@ -79,7 +88,7 @@ declare global {
   var fork: typeof import("child_process").fork
   var degit: typeof import("./degit")
   // custom
-  var ensureReadFile: typeof import("../src/custom").ensureReadFile
+  var ensureReadFile: EnsureReadFile
   // execa
   var exec: typeof import("./execa").execaCommand
   var execa: typeof import("./execa").execa
@@ -117,11 +126,11 @@ declare global {
   //lodash
   var _: import("./lodash").LoDashStatic
   //marked
-  var md: typeof import("../src/md").md
+  var md: Md
+  var marked: typeof import("marked").marked
   //uuid
   var uuid: typeof import("crypto").randomUUID
   //node-fetch
-  // @ts-ignore
   var fetch: typeof import("./node-fetch")
   //replace-in-file
   var replace: typeof import("./replace-in-file").replaceInFile
@@ -156,7 +165,7 @@ export var spawnSync: typeof import("child_process").spawnSync
 export var fork: typeof import("child_process").fork
 export var degit: typeof import("./degit")
 //custom
-export var ensureReadFile: typeof import("../src/custom").ensureReadFile
+export var ensureReadFile: EnsureReadFile
 //download
 export var download: typeof import("./download")
 // execa
@@ -195,7 +204,7 @@ export var compile: typeof import("./handlebars").compile
 export var _: import("./lodash").LoDashStatic
 //marked
 export var md: Md
-export var marked: typeof import("./marked").marked
+export var marked: typeof import("marked").marked
 //nonoid
 export var uuid: typeof import("crypto").randomUUID
 //node-fetch

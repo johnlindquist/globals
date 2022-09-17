@@ -1,14 +1,9 @@
 import { readFile, writeFile } from "./fs"
 import { ensureFile } from "./fs-extra"
-type ReadFileOptions = Parameters<typeof readFile>[1]
-export interface EnsureReadFile {
-  (path: string, defaultContent?: string, options?: ReadFileOptions): Promise<string>
-}
-
-export let ensureReadFile: EnsureReadFile = async (
+export let ensureReadFile = async (
   pathLike: string,
   defaultContent: string = "",
-  options = { encoding: "utf-8" }
+  options = { encoding: "utf-8" } as Parameters<typeof readFile>[1]
 ) => {
   await ensureFile(pathLike)
   if (defaultContent) {
