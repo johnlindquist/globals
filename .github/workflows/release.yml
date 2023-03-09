@@ -27,7 +27,7 @@ jobs:
 
       - name: npm i
         run: |
-          npm i
+          npm i --force --no-audit
 
       - name: build
         run: |
