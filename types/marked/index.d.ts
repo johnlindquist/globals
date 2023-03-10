@@ -505,8 +505,6 @@ export namespace marked {
         renderer: (this: RendererThis, token: Tokens.Generic) => string | false;
     }
 
-    type TokenizerAndRendererExtension = TokenizerExtension | RendererExtension | (TokenizerExtension & RendererExtension);
-
     interface MarkedExtension {
         /**
          * True will tell marked to await any walkTokens functions before parsing the tokens and returning an HTML string.
@@ -527,7 +525,7 @@ export namespace marked {
          * Add tokenizers and renderers to marked
          */
         extensions?:
-            | TokenizerAndRendererExtension[]
+            | Array<TokenizerExtension | RendererExtension | (TokenizerExtension & RendererExtension)>
             | undefined;
 
         /**

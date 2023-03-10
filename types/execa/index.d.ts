@@ -1,10 +1,9 @@
-import {type Buffer} from 'node:buffer';
-import {type ChildProcess} from 'node:child_process';
-import {type Stream, type Readable as ReadableStream} from 'node:stream';
+import {Buffer} from 'node:buffer';
+import {ChildProcess} from 'node:child_process';
+import {Stream, Readable as ReadableStream} from 'node:stream';
 
 export type StdioOption =
 	| 'pipe'
-	| 'overlapped'
 	| 'ipc'
 	| 'ignore'
 	| 'inherit'
@@ -12,7 +11,7 @@ export type StdioOption =
 	| number
 	| undefined;
 
-export type CommonOptions<EncodingType> = {
+export interface CommonOptions<EncodingType> {
 	/**
 	Kill the spawned process when the parent process exits unless either:
 		- the spawned process is [`detached`](https://nodejs.org/api/child_process.html#child_process_options_detached)
@@ -33,6 +32,8 @@ export type CommonOptions<EncodingType> = {
 
 	/**
 	Preferred path to find locally installed binaries in (use with `preferLocal`).
+
+	Using a `URL` is only supported in Node.js `14.18.0`, `16.14.0` or above.
 
 	@default process.cwd()
 	*/
@@ -112,6 +113,8 @@ export type CommonOptions<EncodingType> = {
 	/**
 	Current working directory of the child process.
 
+	Using a `URL` is only supported in Node.js `14.18.0`, `16.14.0` or above.
+
 	@default process.cwd()
 	*/
 	readonly cwd?: string | URL;
@@ -133,12 +136,14 @@ export type CommonOptions<EncodingType> = {
 
 	@default 'pipe'
 	*/
-	readonly stdio?: 'pipe' | 'overlapped' | 'ignore' | 'inherit' | readonly StdioOption[];
+	readonly stdio?: 'pipe' | 'ignore' | 'inherit' | readonly StdioOption[];
 
 	/**
 	Specify the kind of serialization used for sending messages between processes when using the `stdio: 'ipc'` option or `execaNode()`:
 		- `json`: Uses `JSON.stringify()` and `JSON.parse()`.
 		- `advanced`: Uses [`v8.serialize()`](https://nodejs.org/api/v8.html#v8_v8_serialize_value)
+
+	Requires Node.js `13.2.0` or later.
 
 	[More info.](https://nodejs.org/api/child_process.html#child_process_advanced_serialization)
 
@@ -211,7 +216,7 @@ export type CommonOptions<EncodingType> = {
 	*Requires Node.js 16 or later.*
 
 	@example
-	```
+	```js
 	import {execa} from 'execa';
 
 	const abortController = new AbortController();
@@ -244,23 +249,23 @@ export type CommonOptions<EncodingType> = {
 	@default true
 	*/
 	readonly windowsHide?: boolean;
-};
+}
 
-export type Options<EncodingType = string> = {
+export interface Options<EncodingType = string> extends CommonOptions<EncodingType> {
 	/**
 	Write some input to the `stdin` of your binary.
 	*/
 	readonly input?: string | Buffer | ReadableStream;
-} & CommonOptions<EncodingType>;
+}
 
-export type SyncOptions<EncodingType = string> = {
+export interface SyncOptions<EncodingType = string> extends CommonOptions<EncodingType> {
 	/**
 	Write some input to the `stdin` of your binary.
 	*/
 	readonly input?: string | Buffer;
-} & CommonOptions<EncodingType>;
+}
 
-export type NodeOptions<EncodingType = string> = {
+export interface NodeOptions<EncodingType = string> extends Options<EncodingType> {
 	/**
 	The Node.js executable to use.
 
@@ -274,9 +279,9 @@ export type NodeOptions<EncodingType = string> = {
 	@default process.execArgv
 	*/
 	readonly nodeOptions?: string[];
-} & Options<EncodingType>;
+}
 
-export type ExecaReturnBase<StdoutStderrType> = {
+export interface ExecaReturnBase<StdoutStderrType> {
 	/**
 	The file and arguments that were run, for logging purposes.
 
@@ -335,10 +340,11 @@ export type ExecaReturnBase<StdoutStderrType> = {
 	If a signal terminated the process, this property is defined and included in the error message. Otherwise it is `undefined`. It is also `undefined` when the signal is very uncommon which should seldomly happen.
 	*/
 	signalDescription?: string;
-};
+}
 
-export type ExecaSyncReturnValue<StdoutErrorType = string> = {
-} & ExecaReturnBase<StdoutErrorType>;
+export interface ExecaSyncReturnValue<StdoutErrorType = string>
+	extends ExecaReturnBase<StdoutErrorType> {
+}
 
 /**
 Result of a child process execution. On success this is a plain object. On failure this is also an `Error` instance.
@@ -350,7 +356,8 @@ The child process fails when:
 - being canceled
 - there's not enough memory or there are already too many child processes
 */
-export type ExecaReturnValue<StdoutErrorType = string> = {
+export interface ExecaReturnValue<StdoutErrorType = string>
+	extends ExecaSyncReturnValue<StdoutErrorType> {
 	/**
 	The output of the process with `stdout` and `stderr` interleaved.
 
@@ -366,9 +373,11 @@ export type ExecaReturnValue<StdoutErrorType = string> = {
 	You can cancel the spawned process using the [`signal`](https://github.com/sindresorhus/execa#signal-1) option.
 	*/
 	isCanceled: boolean;
-} & ExecaSyncReturnValue<StdoutErrorType>;
+}
 
-export type ExecaSyncError<StdoutErrorType = string> = {
+export interface ExecaSyncError<StdoutErrorType = string>
+	extends Error,
+	ExecaReturnBase<StdoutErrorType> {
 	/**
 	Error message when the child process failed to run. In addition to the underlying error message, it also contains some information related to why the child process errored.
 
@@ -387,9 +396,10 @@ export type ExecaSyncError<StdoutErrorType = string> = {
 	This is `undefined` unless the child process exited due to an `error` event or a timeout.
 	*/
 	originalMessage?: string;
-} & Error & ExecaReturnBase<StdoutErrorType>;
+}
 
-export type ExecaError<StdoutErrorType = string> = {
+export interface ExecaError<StdoutErrorType = string>
+	extends ExecaSyncError<StdoutErrorType> {
 	/**
 	The output of the process with `stdout` and `stderr` interleaved.
 
@@ -403,9 +413,9 @@ export type ExecaError<StdoutErrorType = string> = {
 	Whether the process was canceled.
 	*/
 	isCanceled: boolean;
-} & ExecaSyncError<StdoutErrorType>;
+}
 
-export type KillOptions = {
+export interface KillOptions {
 	/**
 	Milliseconds to wait for the child process to terminate before sending `SIGKILL`.
 
@@ -414,9 +424,9 @@ export type KillOptions = {
 	@default 5000
 	*/
 	forceKillAfterTimeout?: number | false;
-};
+}
 
-export type ExecaChildPromise<StdoutErrorType> = {
+export interface ExecaChildPromise<StdoutErrorType> {
 	/**
 	Stream combining/interleaving [`stdout`](https://nodejs.org/api/child_process.html#child_process_subprocess_stdout) and [`stderr`](https://nodejs.org/api/child_process.html#child_process_subprocess_stderr).
 
@@ -436,10 +446,10 @@ export type ExecaChildPromise<StdoutErrorType> = {
 	kill(signal?: string, options?: KillOptions): void;
 
 	/**
-	Similar to [`childProcess.kill()`](https://nodejs.org/api/child_process.html#child_process_subprocess_kill_signal). This used to be preferred when cancelling the child process execution as the error is more descriptive and [`childProcessResult.isCanceled`](#iscanceled) is set to `true`. But now this is deprecated and you should either use `.kill()` or the `signal` option when creating the child process.
+	Similar to [`childProcess.kill()`](https://nodejs.org/api/child_process.html#child_process_subprocess_kill_signal). This is preferred when cancelling the child process execution as the error is more descriptive and [`childProcessResult.isCanceled`](#iscanceled) is set to `true`.
 	*/
 	cancel(): void;
-};
+}
 
 export type ExecaChildProcess<StdoutErrorType = string> = ChildProcess &
 ExecaChildPromise<StdoutErrorType> &
@@ -570,7 +580,7 @@ export function execaNode(
 export function execaNode(
 	scriptPath: string,
 	arguments?: readonly string[],
-	options?: NodeOptions<null>
+	options?: Options<null>
 ): ExecaChildProcess<Buffer>;
-export function execaNode(scriptPath: string, options?: NodeOptions): ExecaChildProcess;
-export function execaNode(scriptPath: string, options?: NodeOptions<null>): ExecaChildProcess<Buffer>;
+export function execaNode(scriptPath: string, options?: Options): ExecaChildProcess;
+export function execaNode(scriptPath: string, options?: Options<null>): ExecaChildProcess<Buffer>;
