@@ -59,7 +59,6 @@ export interface GlobalsApi {
   md: Md
   marked: typeof import("./marked").marked
   uuid: typeof import("crypto").randomUUID
-  fetch: typeof import("./node-fetch")
   replace: typeof import("./replace-in-file").replaceInFile
   $: $
 
@@ -130,8 +129,7 @@ declare global {
   var marked: typeof import("./marked").marked
   //uuid
   var uuid: typeof import("crypto").randomUUID
-  //node-fetch
-  var fetch: typeof import("./node-fetch")
+
   //replace-in-file
   var replace: typeof import("./replace-in-file").replaceInFile
   // stream
@@ -207,8 +205,6 @@ export var md: Md
 export var marked: typeof import("./marked").marked
 //nonoid
 export var uuid: typeof import("crypto").randomUUID
-//node-fetch
-export var fetch: typeof import("./node-fetch")
 //replace-in-file
 export var replace: typeof import("./replace-in-file").replaceInFile
 // stream

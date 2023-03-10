@@ -5,13 +5,6 @@ import commonjs from "@rollup/plugin-commonjs"
 import json from "@rollup/plugin-json"
 import { terser } from "rollup-plugin-terser"
 import ignore from "rollup-plugin-ignore"
-import replace from "replace-in-file"
-
-await replace({
-  files: "node_modules/node-fetch/@types/index.d.ts",
-  from: [`/// <reference lib="dom" />`, `| URLSearchParams`, `: URL`],
-  to: ``,
-})
 
 let bundle = await rollup({
   input: "./src/index.ts",

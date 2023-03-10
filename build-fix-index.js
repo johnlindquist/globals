@@ -48,12 +48,6 @@ await replaceInFile({
 
 await replaceInFile({
   files: [`./types/index.d.ts`],
-  from: /\.node-fetch/gm,
-  to: `.nodeFetch`,
-})
-
-await replaceInFile({
-  files: [`./types/index.d.ts`],
   from: /\.replace-in-file/gm,
   to: `.replaceInFile`,
 })
