@@ -1,5 +1,5 @@
-import { readFile, writeFile } from "./fs"
-import { ensureFile } from "./fs-extra"
+import { readFile, writeFile } from "fs/promises"
+import { ensureFile } from "fs-extra"
 export let ensureReadFile = async (
   pathLike: string,
   defaultContent: string = "",
