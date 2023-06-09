@@ -48,6 +48,23 @@ export interface GlobalsApi {
   appendFile: typeof import("fs/promises").appendFile
   readdir: typeof import("fs/promises").readdir
   copyFile: typeof import("fs/promises").copyFile
+
+  stat: typeof import("fs/promises").stat
+  lstat: typeof import("fs/promises").lstat
+  mkdir: typeof import("fs/promises").mkdir
+  rmdir: typeof import("fs/promises").rmdir
+  unlink: typeof import("fs/promises").unlink
+  symlink: typeof import("fs/promises").symlink
+  readlink: typeof import("fs/promises").readlink
+  realpath: typeof import("fs/promises").realpath
+  access: typeof import("fs/promises").access
+  chmod: typeof import("fs/promises").chmod
+  lchmod: typeof import("fs/promises").lchmod
+  chown: typeof import("fs/promises").chown
+  lchown: typeof import("fs/promises").lchown
+  utimes: typeof import("fs/promises").utimes
+  lutimes: typeof import("fs/promises").lutimes
+
   createReadStream: typeof import("fs").createReadStream
   createWriteStream: typeof import("fs").createWriteStream
   Writable: typeof import("stream").Writable
@@ -117,9 +134,27 @@ declare global {
   var appendFile: typeof import("fs/promises").appendFile
   var readdir: typeof import("fs/promises").readdir
   var copyFile: typeof import("fs/promises").copyFile
+
+  var stat: typeof import("fs/promises").stat
+  var lstat: typeof import("fs/promises").lstat
+  var mkdir: typeof import("fs/promises").mkdir
+  var rmdir: typeof import("fs/promises").rmdir
+  var unlink: typeof import("fs/promises").unlink
+  var symlink: typeof import("fs/promises").symlink
+  var readlink: typeof import("fs/promises").readlink
+  var realpath: typeof import("fs/promises").realpath
+  var access: typeof import("fs/promises").access
+  var chmod: typeof import("fs/promises").chmod
+  var lchmod: typeof import("fs/promises").lchmod
+  var chown: typeof import("fs/promises").chown
+  var lchown: typeof import("fs/promises").lchown
+  var utimes: typeof import("fs/promises").utimes
+  var lutimes: typeof import("fs/promises").lutimes
+
   //fs
   var createReadStream: typeof import("fs").createReadStream
   var createWriteStream: typeof import("fs").createWriteStream
+
   //handlebars
   var compile: typeof import("./handlebars").compile
   //lodash
@@ -193,6 +228,23 @@ export var writeFile: typeof import("fs/promises").writeFile
 export var appendFile: typeof import("fs/promises").appendFile
 export var readdir: typeof import("fs/promises").readdir
 export var copyFile: typeof import("fs/promises").copyFile
+
+export var stat: typeof import("fs/promises").stat
+export var lstat: typeof import("fs/promises").lstat
+export var mkdir: typeof import("fs/promises").mkdir
+export var rmdir: typeof import("fs/promises").rmdir
+export var unlink: typeof import("fs/promises").unlink
+export var symlink: typeof import("fs/promises").symlink
+export var readlink: typeof import("fs/promises").readlink
+export var realpath: typeof import("fs/promises").realpath
+export var access: typeof import("fs/promises").access
+export var chmod: typeof import("fs/promises").chmod
+export var lchmod: typeof import("fs/promises").lchmod
+export var chown: typeof import("fs/promises").chown
+export var lchown: typeof import("fs/promises").lchown
+export var utimes: typeof import("fs/promises").utimes
+export var lutimes: typeof import("fs/promises").lutimes
+
 //fs
 export var createReadStream: typeof import("fs").createReadStream
 export var createWriteStream: typeof import("fs").createWriteStream
