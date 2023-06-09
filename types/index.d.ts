@@ -51,15 +51,14 @@ export interface GlobalsApi {
 
   stat: typeof import("fs/promises").stat
   lstat: typeof import("fs/promises").lstat
-  mkdir: typeof import("fs/promises").mkdir
+
   rmdir: typeof import("fs/promises").rmdir
   unlink: typeof import("fs/promises").unlink
   symlink: typeof import("fs/promises").symlink
   readlink: typeof import("fs/promises").readlink
   realpath: typeof import("fs/promises").realpath
   access: typeof import("fs/promises").access
-  chmod: typeof import("fs/promises").chmod
-  lchmod: typeof import("fs/promises").lchmod
+
   chown: typeof import("fs/promises").chown
   lchown: typeof import("fs/promises").lchown
   utimes: typeof import("fs/promises").utimes
@@ -137,15 +136,14 @@ declare global {
 
   var stat: typeof import("fs/promises").stat
   var lstat: typeof import("fs/promises").lstat
-  var mkdir: typeof import("fs/promises").mkdir
+
   var rmdir: typeof import("fs/promises").rmdir
   var unlink: typeof import("fs/promises").unlink
   var symlink: typeof import("fs/promises").symlink
   var readlink: typeof import("fs/promises").readlink
   var realpath: typeof import("fs/promises").realpath
   var access: typeof import("fs/promises").access
-  var chmod: typeof import("fs/promises").chmod
-  var lchmod: typeof import("fs/promises").lchmod
+
   var chown: typeof import("fs/promises").chown
   var lchown: typeof import("fs/promises").lchown
   var utimes: typeof import("fs/promises").utimes
@@ -231,15 +229,14 @@ export var copyFile: typeof import("fs/promises").copyFile
 
 export var stat: typeof import("fs/promises").stat
 export var lstat: typeof import("fs/promises").lstat
-export var mkdir: typeof import("fs/promises").mkdir
+
 export var rmdir: typeof import("fs/promises").rmdir
 export var unlink: typeof import("fs/promises").unlink
 export var symlink: typeof import("fs/promises").symlink
 export var readlink: typeof import("fs/promises").readlink
 export var realpath: typeof import("fs/promises").realpath
 export var access: typeof import("fs/promises").access
-export var chmod: typeof import("fs/promises").chmod
-export var lchmod: typeof import("fs/promises").lchmod
+
 export var chown: typeof import("fs/promises").chown
 export var lchown: typeof import("fs/promises").lchown
 export var utimes: typeof import("fs/promises").utimes
