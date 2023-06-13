@@ -28,7 +28,7 @@ export interface GlobalsApi {
   execaCommand: typeof import("./execa").execaCommand
   execaCommandSync: typeof import("./execa").execaCommandSync
   execaNode: typeof import("./execa").execaNode
-  degit: typeof import("./degit")
+
   download: typeof import("./download")
   emptyDir: typeof import("./fs-extra").emptyDir
   ensureFile: typeof import("./fs-extra").ensureFile
@@ -71,7 +71,7 @@ export interface GlobalsApi {
   Duplex: typeof import("stream").Duplex
   Transform: typeof import("stream").Transform
   compile: typeof import("./handlebars").compile
-  _: import("./lodash").LoDashStatic
+
   md: Md
   marked: typeof import("./marked").marked
   uuid: typeof import("crypto").randomUUID
@@ -101,7 +101,7 @@ declare global {
   var spawn: typeof import("child_process").spawn
   var spawnSync: typeof import("child_process").spawnSync
   var fork: typeof import("child_process").fork
-  var degit: typeof import("./degit")
+
   // custom
   var ensureReadFile: EnsureReadFile
   // execa
@@ -155,8 +155,7 @@ declare global {
 
   //handlebars
   var compile: typeof import("./handlebars").compile
-  //lodash
-  var _: import("./lodash").LoDashStatic
+
   //marked
   var md: Md
   var marked: typeof import("./marked").marked
@@ -194,7 +193,7 @@ export var chalk: typeof import("chalk-template").default
 export var spawn: typeof import("child_process").spawn
 export var spawnSync: typeof import("child_process").spawnSync
 export var fork: typeof import("child_process").fork
-export var degit: typeof import("./degit")
+
 //custom
 export var ensureReadFile: EnsureReadFile
 //download
@@ -247,8 +246,7 @@ export var createReadStream: typeof import("fs").createReadStream
 export var createWriteStream: typeof import("fs").createWriteStream
 //handlebars
 export var compile: typeof import("./handlebars").compile
-//lodash
-export var _: import("./lodash").LoDashStatic
+
 //marked
 export var md: Md
 export var marked: typeof import("./marked").marked
