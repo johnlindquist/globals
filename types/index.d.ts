@@ -129,6 +129,7 @@ declare global {
   var readJson: typeof import("./fs-extra").readJson
   var remove: typeof import("./fs-extra").remove
   var writeJson: typeof import("./fs-extra").writeJson
+  var move: typeof import("./fs-extra").move
   //fs/promises
   var readFile: typeof import("fs/promises").readFile
   var writeFile: typeof import("fs/promises").writeFile
@@ -150,6 +151,8 @@ declare global {
   var lchown: typeof import("fs/promises").lchown
   var utimes: typeof import("fs/promises").utimes
   var lutimes: typeof import("fs/promises").lutimes
+
+  var rename: typeof import("fs/promises").rename
 
   //fs
   var createReadStream: typeof import("fs").createReadStream
