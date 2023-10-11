@@ -221,6 +221,7 @@ export var pathExists: typeof import("./fs-extra").pathExists
 export var readJson: typeof import("./fs-extra").readJson
 export var remove: typeof import("./fs-extra").remove
 export var writeJson: typeof import("./fs-extra").writeJson
+export var move: typeof import("./fs-extra").move
 //fs/promises
 export var readFile: typeof import("fs/promises").readFile
 export var writeFile: typeof import("fs/promises").writeFile
@@ -242,6 +243,7 @@ export var chown: typeof import("fs/promises").chown
 export var lchown: typeof import("fs/promises").lchown
 export var utimes: typeof import("fs/promises").utimes
 export var lutimes: typeof import("fs/promises").lutimes
+export var rename: typeof import("fs/promises").rename
 
 //fs
 export var createReadStream: typeof import("fs").createReadStream
