@@ -43,6 +43,7 @@ export interface GlobalsApi {
   readJson: typeof import("./fs-extra").readJson
   remove: typeof import("./fs-extra").remove
   writeJson: typeof import("./fs-extra").writeJson
+  move: typeof import("./fs-extra").move
   readFile: typeof import("fs/promises").readFile
   writeFile: typeof import("fs/promises").writeFile
   appendFile: typeof import("fs/promises").appendFile
@@ -58,6 +59,7 @@ export interface GlobalsApi {
   readlink: typeof import("fs/promises").readlink
   realpath: typeof import("fs/promises").realpath
   access: typeof import("fs/promises").access
+  rename: typeof import("fs/promises").rename
 
   chown: typeof import("fs/promises").chown
   lchown: typeof import("fs/promises").lchown
