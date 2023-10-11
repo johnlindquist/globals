@@ -18,6 +18,7 @@ export let chown = (global.chown = fsPromises.chown)
 export let lchown = (global.lchown = fsPromises.lchown)
 export let utimes = (global.utimes = fsPromises.utimes)
 export let lutimes = (global.lutimes = fsPromises.lutimes)
+export let rename = (global.move = fsPromises.rename)
 
 export let createReadStream = (global.createReadStream = fs.createReadStream)
 export let createWriteStream = (global.createWriteStream = fs.createWriteStream)

@@ -38,27 +38,27 @@
     "@rollup/plugin-typescript": "11.1.0",
     "@types/axios": "0.14.0",
     "@types/chalk": "2.2.0",
-    "@types/download": "8.0.2",
-    "@types/fs-extra": "11.0.1",
+    "@types/download": "8.0.3",
+    "@types/fs-extra": "11.0.2",
     "@types/glob": "8.1.0",
     "@types/handlebars": "4.1.0",
     "@types/marked": "4.3.0",
-    "@types/minimist": "1.2.2",
-    "@types/shelljs": "0.8.12",
-    "@types/uuid": "9.0.1",
-    "axios": "^1.4.0",
+    "@types/minimist": "1.2.3",
+    "@types/shelljs": "0.8.13",
+    "@types/uuid": "9.0.5",
+    "axios": "^1.5.1",
     "chalk": "5.0.1",
     "clipboardy": "3.0.0",
     "concurrently": "7.4.0",
     "download": "^8.0.0",
     "dts-bundle-generator": "6.13.0",
-    "esbuild": "0.17.18",
+    "esbuild": "0.19.4",
     "fs-extra": "11.1.1",
-    "glob": "10.2.2",
-    "handlebars": "4.7.7",
+    "glob": "10.3.10",
+    "handlebars": "4.7.8",
     "marked": "4.3.0",
     "minimist": "1.2.8",
-    "replace-in-file": "6.3.5",
+    "replace-in-file": "7.0.1",
     "rollup": "3.21.4",
     "rollup-plugin-dts": "5.3.0",
     "rollup-plugin-ignore": "1.0.10",
@@ -68,8 +68,8 @@
     "semantic-release": "19.0.5",
     "semantic-release-plugin-update-version-in-files": "1.1.0",
     "shelljs": "0.8.5",
-    "typescript": "5.0.4",
-    "uuid": "9.0.0"
+    "typescript": "5.2.2",
+    "uuid": "9.0.1"
   },
   "release": {
     "branches": [
@@ -93,7 +93,7 @@
   },
   "dependencies": {
     "chalk-template": "^0.4.0",
-    "execa": "7.1.1",
+    "execa": "8.0.1",
     "open": "9.1.0"
   }
 }
