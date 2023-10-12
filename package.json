@@ -94,6 +94,7 @@
   "dependencies": {
     "chalk-template": "^0.4.0",
     "execa": "8.0.1",
+    "globby": "^13.2.2",
     "open": "9.1.0"
   }
 }
