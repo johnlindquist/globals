@@ -30,25 +30,44 @@ export interface GlobalsApi {
   execaNode: typeof import("./execa").execaNode
 
   download: typeof import("./download")
+
   emptyDir: typeof import("./fs-extra").emptyDir
+  emptyDirSync: typeof import("./fs-extra").emptyDirSync
   ensureFile: typeof import("./fs-extra").ensureFile
+  ensureFileSync: typeof import("./fs-extra").ensureFileSync
   ensureDir: typeof import("./fs-extra").ensureDir
+  ensureDirSync: typeof import("./fs-extra").ensureDirSync
   ensureLink: typeof import("./fs-extra").ensureLink
+  ensureLinkSync: typeof import("./fs-extra").ensureLinkSync
   ensureSymlink: typeof import("./fs-extra").ensureSymlink
+  ensureSymlinkSync: typeof import("./fs-extra").ensureSymlinkSync
   mkdirp: typeof import("./fs-extra").mkdirp
+  mkdirpSync: typeof import("./fs-extra").mkdirpSync
   mkdirs: typeof import("./fs-extra").mkdirs
   outputFile: typeof import("./fs-extra").outputFile
+  outputFileSync: typeof import("./fs-extra").outputFileSync
   outputJson: typeof import("./fs-extra").outputJson
+  outputJsonSync: typeof import("./fs-extra").outputJsonSync
   pathExists: typeof import("./fs-extra").pathExists
+  pathExistsSync: typeof import("./fs-extra").pathExistsSync
   readJson: typeof import("./fs-extra").readJson
+  readJsonSync: typeof import("./fs-extra").readJsonSync
   remove: typeof import("./fs-extra").remove
+  removeSync: typeof import("./fs-extra").removeSync
   writeJson: typeof import("./fs-extra").writeJson
+  writeJsonSync: typeof import("./fs-extra").writeJsonSync
   move: typeof import("./fs-extra").move
+  moveSync: typeof import("./fs-extra").moveSync
   readFile: typeof import("fs/promises").readFile
+  readFileSync: typeof import("fs").readFileSync
   writeFile: typeof import("fs/promises").writeFile
+  writeFileSync: typeof import("fs").writeFileSync
   appendFile: typeof import("fs/promises").appendFile
+  appendFileSync: typeof import("fs").appendFileSync
   readdir: typeof import("fs/promises").readdir
+  readdirSync: typeof import("fs").readdirSync
   copyFile: typeof import("fs/promises").copyFile
+  copyFileSync: typeof import("fs").copyFileSync
 
   stat: typeof import("fs/promises").stat
   lstat: typeof import("fs/promises").lstat
@@ -119,25 +138,43 @@ declare global {
   var download: typeof import("./download")
   //fs-extra
   var emptyDir: typeof import("./fs-extra").emptyDir
+  var emptyDirSync: typeof import("./fs-extra").emptyDirSync
   var ensureFile: typeof import("./fs-extra").ensureFile
+  var ensureFileSync: typeof import("./fs-extra").ensureFileSync
   var ensureDir: typeof import("./fs-extra").ensureDir
+  var ensureDirSync: typeof import("./fs-extra").ensureDirSync
   var ensureLink: typeof import("./fs-extra").ensureLink
+  var ensureLinkSync: typeof import("./fs-extra").ensureLinkSync
   var ensureSymlink: typeof import("./fs-extra").ensureSymlink
+  var ensureSymlinkSync: typeof import("./fs-extra").ensureSymlinkSync
   var mkdirp: typeof import("./fs-extra").mkdirp
+  var mkdirpSync: typeof import("./fs-extra").mkdirpSync
   var mkdirs: typeof import("./fs-extra").mkdirs
   var outputFile: typeof import("./fs-extra").outputFile
+  var outputFileSync: typeof import("./fs-extra").outputFileSync
   var outputJson: typeof import("./fs-extra").outputJson
+  var outputJsonSync: typeof import("./fs-extra").outputJsonSync
   var pathExists: typeof import("./fs-extra").pathExists
+  var pathExistsSync: typeof import("./fs-extra").pathExistsSync
   var readJson: typeof import("./fs-extra").readJson
+  var readJsonSync: typeof import("./fs-extra").readJsonSync
   var remove: typeof import("./fs-extra").remove
+  var removeSync: typeof import("./fs-extra").removeSync
   var writeJson: typeof import("./fs-extra").writeJson
+  var writeJsonSync: typeof import("./fs-extra").writeJsonSync
   var move: typeof import("./fs-extra").move
+  var moveSync: typeof import("./fs-extra").moveSync
   //fs/promises
   var readFile: typeof import("fs/promises").readFile
+  var readFileSync: typeof import("fs").readFileSync
   var writeFile: typeof import("fs/promises").writeFile
+  var writeFileSync: typeof import("fs").writeFileSync
   var appendFile: typeof import("fs/promises").appendFile
+  var appendFileSync: typeof import("fs").appendFileSync
   var readdir: typeof import("fs/promises").readdir
+  var readdirSync: typeof import("fs").readdirSync
   var copyFile: typeof import("fs/promises").copyFile
+  var copyFileSync: typeof import("fs").copyFileSync
 
   var stat: typeof import("fs/promises").stat
   var lstat: typeof import("fs/promises").lstat
