@@ -33,5 +33,5 @@
   }
 
 
-type FromCallback = (file: string) => string | RegExp | string[] | RegExp[];
+type FromCallback = (file: string) => string | RegExp | (RegExp | string)[];
 type ToCallback = (match: string, file: string) => string | string[];
