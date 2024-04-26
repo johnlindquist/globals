@@ -1,5 +1,5 @@
 import { readFile, writeFile } from "fs/promises"
-import { ensureFile, exists, readJson, writeJson } from "fs-extra"
+import { ensureFile, pathExists, readJson, writeJson } from "fs-extra"
 export let ensureReadFile = async (
   pathLike: string,
   defaultContent: string = "",
@@ -22,7 +22,7 @@ export let ensureReadJson = async <T>(
   defaultContent: T,
   options?: Parameters<typeof readJson>[1]
 ): Promise<T> => {
-  if (await exists(pathLike)) {
+  if (await pathExists(pathLike)) {
     return await readJson(pathLike, options)
   }
 
