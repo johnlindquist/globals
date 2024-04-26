@@ -28,6 +28,7 @@ export let ensureReadJson = async <T>(
 
   await ensureFile(pathLike)
   await writeJson(pathLike, defaultContent)
+  return defaultContent
 }
 
 global.ensureReadFile = ensureReadFile
