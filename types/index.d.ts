@@ -7,6 +7,10 @@ export interface EnsureReadFile {
   (path: string, defaultContent?: string, options?: ReadFileOptions): Promise<string>
 }
 
+export interface EnsureReadJson {
+  <T>(path: string, defaultContent: T, options?: Parameters<typeof readJson>[1]): Promise<T>
+}
+
 export interface GlobalsApi {
   cwd: typeof process.cwd
   pid: typeof process.pid
@@ -101,6 +105,7 @@ export interface GlobalsApi {
 
   //custom
   ensureReadFile: EnsureReadFile
+  ensureReadJson: EnsureReadJson
 
   globby: typeof import("globby").globby
 }
@@ -127,6 +132,7 @@ declare global {
 
   // custom
   var ensureReadFile: EnsureReadFile
+  var ensureReadJson: EnsureReadJson
   // execa
   var exec: typeof import("./execa").execaCommand
   var execa: typeof import("./execa").execa
@@ -241,6 +247,7 @@ export var fork: typeof import("child_process").fork
 
 //custom
 export var ensureReadFile: EnsureReadFile
+export var ensureReadJson: EnsureReadJson
 //download
 export var download: typeof import("./download")
 // execa
