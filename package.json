@@ -13,10 +13,10 @@
   "types": "./types/index.d.ts",
   "exports": {
     ".": {
-      "require": "./dist/index.cjs",
-      "default": "./dist/index.js",
+      "types": "./types/index.d.ts",
       "import": "./dist/index.js",
-      "types": "./types/index.d.ts"
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.js"
     }
   },
   "module": "./dist/index.js",
